@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Primary Meta Tags -->
+  <!-- SPIDER Project Meta Tags -->
+  <meta name="title" content="SPIDER: Scalable Physics-Informed DExterous Retargeting - Anonymous Submission">
+  <!-- SPIDER Project Description -->
+  <meta name="description" content="Physics-based retargeting framework that bridges human motion and robot feasibility at scale for dexterous manipulation and humanoid control.">
+  <!-- SPIDER Project Keywords -->
+  <meta name="keywords" content="robotics, dexterous manipulation, humanoid control, physics simulation, motion retargeting, robot learning, embodiment transfer, contact modeling">
+  <!-- Anonymous Submission -->
+  <meta name="author" content="Anonymous Authors">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article">
+  <!-- Anonymous Submission -->
+  <meta property="og:site_name" content="ICRA 2026 Anonymous Submission">
+  <!-- SPIDER Project Title -->
+  <meta property="og:title" content="SPIDER: Scalable Physics-Informed DExterous Retargeting">
+  <!-- SPIDER Project Description -->
+  <meta property="og:description" content="Physics-based retargeting framework that bridges human motion and robot feasibility at scale for dexterous manipulation and humanoid control.">
+  <!-- SPIDER Project URL -->
+  <meta property="og:url" content="https://spider-retarget.github.io/spider-project-page/">
+  <!-- SPIDER Project Social Preview -->
+  <meta property="og:image" content="https://spider-retarget.github.io/spider-project-page/figs/teaser.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SPIDER - Physics-based Retargeting Framework">
+  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
+  <meta property="article:author" content="Anonymous Authors">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="robotics">
+  <meta property="article:tag" content="dexterous manipulation">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Anonymous Submission -->
+  <meta name="twitter:site" content="@anonymous">
+  <!-- Anonymous Submission -->
+  <meta name="twitter:creator" content="@anonymous">
+  <!-- SPIDER Project Title -->
+  <meta name="twitter:title" content="SPIDER: Scalable Physics-Informed DExterous Retargeting">
+  <!-- SPIDER Project Description -->
+  <meta name="twitter:description" content="Physics-based retargeting framework that bridges human motion and robot feasibility at scale for dexterous manipulation and humanoid control.">
+  <!-- SPIDER Project Social Preview -->
+  <meta name="twitter:image" content="https://spider-retarget.github.io/spider-project-page/figs/teaser.png">
+  <meta name="twitter:image:alt" content="SPIDER - Physics-based Retargeting Framework">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="SPIDER: Scalable Physics-Informed DExterous Retargeting">
+  <meta name="citation_author" content="Anonymous, Authors">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="IEEE International Conference on Robotics and Automation (ICRA)">
+  <meta name="citation_pdf_url" content="https://spider-retarget.github.io/spider-project-page/static/pdfs/paper.pdf">
+  
+  <!-- Additional SEO -->
+  <meta name="theme-color" content="#2563eb">
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <!-- SPIDER Project Title -->
+  <title>SPIDER: Scalable Physics-Informed DExterous Retargeting | ICRA 2026 Anonymous Submission</title>
+  
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/svg+xml" href="figs/spider.svg">
+  <link rel="apple-touch-icon" href="figs/spider.svg">
+  
+  <!-- Critical CSS - Load synchronously -->
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "SPIDER: Scalable Physics-Informed DExterous Retargeting",
+    "description": "Physics-based retargeting framework that bridges human motion and robot feasibility at scale for dexterous manipulation and humanoid control.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Anonymous Authors",
+        "affiliation": {
+          "@type": "Organization",
+          "name": "Anonymous Institution"
+        }
+      }
+    ],
+    "datePublished": "2026-01-01",
+    "publisher": {
+      "@type": "Organization",
+      "name": "IEEE International Conference on Robotics and Automation (ICRA)"
+    },
+    "url": "https://spider-retarget.github.io/spider-project-page/",
+    "image": "https://spider-retarget.github.io/spider-project-page/figs/teaser.png",
+    "keywords": ["robotics", "dexterous manipulation", "humanoid control", "physics simulation", "motion retargeting", "robot learning"],
+    "abstract": "Learning humanoid and dexterous robot control requires large-scale demonstrations, but collecting robot-specific data is prohibitively expensive. We propose SPIDER, a physics-based retargeting framework to bridge human and robot feasibility gap at scale.",
+    "citation": "@inproceedings{spider2026, title={SPIDER: Scalable Physics-Informed DExterous Retargeting}, author={Anonymous Authors}, booktitle={IEEE International Conference on Robotics and Automation (ICRA)}, year={2026}}",
+    "isAccessibleForFree": true,
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://spider-retarget.github.io/spider-project-page/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Robotics"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Dexterous Manipulation"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Motion Retargeting"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website/Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Anonymous Institution",
+    "url": "https://spider-retarget.github.io/spider-project-page/",
+    "logo": "https://spider-retarget.github.io/spider-project-page/figs/spider.svg"
+  }
+  </script>
+</head>
+<body>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works from Our Lab</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <!-- Related works removed as requested -->
+        <div style="text-align: center; padding: 2rem; color: #666;">
+          <p>Related works will be added after publication.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- SPIDER Project Title -->
+            <h1 class="title is-1 publication-title">
+              <img src="figs/spider.svg" alt="SPIDER" style="height: 1.2em; width: 1.2em; display: inline-block; vertical-align: middle; margin-right: 0.3em;">
+              SPIDER: Scalable Physics-Informed DExterous Retargeting
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Anonymous Authors for ICRA 2026 Submission -->
+              <span class="author-block">
+                Anonymous Authors</span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <!-- Anonymous Submission -->
+                    <span class="author-block">Anonymous Institution<br>ICRA 2026 Submission</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Paper links will be available after acceptance -->
+                      <span class="link-block">
+                        <a href="#" onclick="return false;" 
+                        class="external-link button is-normal is-rounded is-dark" style="opacity: 0.6; cursor: not-allowed;">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper (Coming Soon)</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary Material -->
+                    <span class="link-block">
+                      <a href="#" onclick="return false;"
+                      class="external-link button is-normal is-rounded is-dark" style="opacity: 0.6; cursor: not-allowed;">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary (Coming Soon)</span>
+                    </a>
+                  </span>
+
+                  <!-- Code Repository -->
+                  <span class="link-block">
+                    <a href="#" onclick="return false;"
+                    class="external-link button is-normal is-rounded is-dark" style="opacity: 0.6; cursor: not-allowed;">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming Soon)</span>
+                  </a>
+                </span>
+
+                <!-- arXiv Link -->
+                <span class="link-block">
+                  <a href="#" onclick="return false;"
+                  class="external-link button is-normal is-rounded is-dark" style="opacity: 0.6; cursor: not-allowed;">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (Coming Soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- SPIDER Teaser Video -->
+      <video poster="" id="tree" controls loop height="100%" preload="metadata">
+        <!-- SPIDER teaser video -->
+        <source src="videos/teaser_video.mp4" type="video/mp4">
+      </video>
+      <!-- SPIDER Video Description -->
+      <h2 class="subtitle has-text-centered">
+        SPIDER is a framework for mapping infeasible human motion to feasible dexterous robot actions by massive physics-based sampling with virtual contact guidance. After physics-based retargeting, we can generate large-scale dynamically feasible datasets directly deployable on robots in the real world.
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <!-- SPIDER Abstract -->
+          <p>
+            Learning humanoid and dexterous robot control requires large-scale demonstrations, but collecting robot-specific data is prohibitively expensive. In contrast, abundant human motion data is readily available from motion capture, video, and VR. However, these demonstrations cannot be directly executed on robots due to morphology, dynamics, and contact mismatches between humans and robots. We propose Scalable Physics-Informed DExterous Retargeting (SPIDER), a physics-based retargeting framework to bridge human and robot feasibility gap at scale. Our key insight is that human demonstrations should provide global task structure, while large-scale physics-based sampling with curriculum-style virtual contact guidance refines trajectories to ensure dynamical feasibility and correct contact sequences. SPIDER scales across diverse robots and tasks, improves success rates by 18% compared to standard sampling, while being 10× faster than RL baselines, and enables a large-scale dataset of 2.4M robot-feasible frames for policy learning. By bridging human motion and robot feasibility at scale, SPIDER offers a general, embodiment-agnostic foundation for humanoid and dexterous hand control.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- SPIDER Teaser Figure -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">SPIDER Framework Overview</h2>
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <img src="figs/teaser.png" alt="SPIDER framework overview showing physics-based retargeting from human motion to robot actions" loading="lazy" style="width: 100%; height: auto;"/>
+          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+            <strong>Figure 1:</strong> SPIDER is a framework for mapping infeasible human motion to feasible dexterous robot actions by massive physics-based sampling with virtual contact guidance. After physics-based retargeting, we can generate large-scale dynamically feasible datasets directly deployable on robots in the real world.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End SPIDER teaser figure -->
+
+
+
+
+<!-- SPIDER Pipeline Figure -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Method Pipeline</h2>
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <img src="figs/pipeline.png" alt="SPIDER method pipeline showing the physics-based retargeting process" loading="lazy" style="width: 100%; height: auto;"/>
+          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+            <strong>Method Pipeline:</strong> SPIDER takes human motion as input and generates robot-feasible trajectories through physics-based sampling with virtual contact guidance, ensuring dynamical feasibility and correct contact sequences.
+          </h2>
+        </div>
+      </div>
+      
+      <!-- Pipeline Process Videos -->
+      <div class="video-scroll-container" style="margin-top: 2rem;">
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">Human Motion Input</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/pipeline/human_motion.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">IK</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/pipeline/ik.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">Physics-Based Sampling</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/pipeline/sampling.mp4" type="video/webm">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">Retargeted Trajectory</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/pipeline/retarget.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End SPIDER pipeline figure -->
+
+
+
+<!-- Simulation Results -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Simulation Results</h2>
+      
+      
+      <!-- Multi-Robot Demonstrations -->
+      <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Multi-Robot Tea Pouring Task</h3>
+      <div class="video-scroll-container">
+        <div class="video-scroll-item">
+          <h4 class="subtitle is-5 has-text-centered">Allegro Hand</h4>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/sim/allegro_tea.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h4 class="subtitle is-5 has-text-centered">Inspire Hand</h4>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/sim/inspire_tea.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h4 class="subtitle is-5 has-text-centered">Schunk Hand</h4>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/sim/schunk_tea.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h4 class="subtitle is-5 has-text-centered">XHand</h4>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/sim/xhand_tea.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h4 class="subtitle is-5 has-text-centered">Ability Hand - Tea</h4>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/sim/ability_tea.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h4 class="subtitle is-5 has-text-centered">Ability Hand - Board Wiping</h4>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/sim/ability_wipe_board.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h4 class="subtitle is-5 has-text-centered">Inspire Hand - Board Lifting</h4>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/sim/inspire_lift_board.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End simulation results -->
+
+<!-- Real World Results -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Real World Results</h2>
+      
+      <!-- Real World Demonstrations -->
+      <div class="video-scroll-container">
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">Pick Cup</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/real/pick_cup.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">Pick Spoon</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/real/pick_spoon.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">Pick Spoon from Bowl</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/real/pick_spoon_bowl.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">Play Guitar</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/real/play_gitar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">Rotate Cube</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/real/rotate_cube.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">Rotate Bulb</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/real/Rotateblub.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-scroll-item">
+          <h3 class="subtitle is-4 has-text-centered">Unplug</h3>
+          <video poster="" controls muted loop preload="metadata">
+            <source src="videos/real/unplug.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End real world results -->
+
+
+
+
+
+
+
+<!-- Poster section removed as requested -->
+
+<!-- Method Section -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <p>
+            SPIDER addresses the fundamental challenge of transferring human demonstrations to robot control by leveraging physics-based simulation and contact-aware guidance. Our approach consists of three main components: (1) human motion preprocessing and embodiment mapping, (2) physics-based sampling with virtual contact guidance, and (3) trajectory refinement for robot deployment.
+          </p>
+          <p>
+            The key insight behind SPIDER is that human demonstrations should provide global task structure, while large-scale physics-based sampling with curriculum-style virtual contact guidance refines trajectories to ensure dynamical feasibility and correct contact sequences. This approach enables us to bridge the morphology, dynamics, and contact mismatches between humans and robots at scale.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Contact Guidance Ablation integrated into Method -->
+  <div class="container">
+    <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Contact Guidance Ablation Study</h3>
+    <div class="video-scroll-container">
+      <div class="video-scroll-item">
+        <h4 class="subtitle is-5 has-text-centered">With Contact Guidance - Allegro</h4>
+        <video poster="" controls muted loop preload="metadata">
+          <source src="videos/contact_guidance/w_contact_allegro.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-scroll-item">
+        <h4 class="subtitle is-5 has-text-centered">Without Contact Guidance - Allegro</h4>
+        <video poster="" controls muted loop preload="metadata">
+          <source src="videos/contact_guidance/wo_contact_allegro.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-scroll-item">
+        <h4 class="subtitle is-5 has-text-centered">With Contact Guidance - Constraint G1</h4>
+        <video poster="" controls muted loop preload="metadata">
+          <source src="videos/contact_guidance/w_contact_constraint_g1.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="video-scroll-item">
+        <h4 class="subtitle is-5 has-text-centered">Without Contact Guidance - Constraint G1</h4>
+        <video poster="" controls muted loop preload="metadata">
+          <source src="videos/contact_guidance/wo_contact_constraint_g1.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Method Section -->
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@inproceedings{spider2026,
+  title={SPIDER: Scalable Physics-Informed DExterous Retargeting},
+  author={Anonymous Authors},
+  booktitle={IEEE International Conference on Robotics and Automation (ICRA)},
+  year={2026},
+  url={https://spider-retarget.github.io/spider-project-page/}
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+  </main>
+  <!-- End main content -->
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
