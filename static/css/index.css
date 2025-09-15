@@ -740,6 +740,7 @@ a:focus {
   padding: 1rem 0 2rem;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  align-items: flex-start;
 }
 
 .video-scroll-container::-webkit-scrollbar {
@@ -763,6 +764,9 @@ a:focus {
 .video-scroll-item {
   flex: 0 0 320px;
   min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .video-scroll-item h3,
@@ -772,6 +776,10 @@ a:focus {
   font-weight: 600;
   text-align: center;
   color: var(--text-primary);
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .video-scroll-item video {
@@ -780,6 +788,7 @@ a:focus {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-md);
   transition: var(--transition);
+  display: block;
 }
 
 .video-scroll-item video:hover {
@@ -817,6 +826,5 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
 
 
