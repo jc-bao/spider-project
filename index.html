@@ -433,11 +433,19 @@
     <section class="hero is-small">
       <div class="hero-body">
         <div class="container">
-          <h2 class="title is-3 has-text-centered">Simulation Results</h2>
+          <h2 class="title is-3 has-text-centered">Dexterous Manipulation Results</h2>
+          <iframe src="https://app.rerun.io/version/0.26.0/?url=/static/rerun/g1_run.rrd" width="100%" height="800vh"
+            style="border:none"></iframe>
+          <script>
+            // Make url absolute at runtime so it works locally AND on GitHub Pages:
+            const f = document.querySelector('iframe');
+            const rrdURL = new URL('/static/rerun/g1_run.rrd', window.location.origin).href;
+            f.src = `https://app.rerun.io/version/0.26.0/?url=${encodeURIComponent(rrdURL)}`;
+          </script>
 
 
           <!-- Multi-Robot Demonstrations -->
-          <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Multi-Robot Tea Pouring Task</h3>
+          <!-- <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Multi-Robot Tea Pouring Task</h3>
           <div class="video-scroll-container">
             <div class="video-scroll-item">
               <h4 class="subtitle is-5 has-text-centered">Allegro Hand</h4>
@@ -481,7 +489,7 @@
                 <source data-src="videos/sim/inspire_lift_board.mp4" type="video/mp4">
               </video>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
