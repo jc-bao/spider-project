@@ -827,6 +827,84 @@ a:focus {
   }
 }
 
+/* Bulma Tabs Customization */
+.tabs {
+  margin-bottom: 2rem;
+}
+
+.tabs li a {
+  color: var(--text-secondary);
+  border-bottom-color: var(--border-color);
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.tabs li:hover a {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.tabs li.is-active a {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+  font-weight: 600;
+}
+
+.tabs.is-boxed li a {
+  background-color: var(--background-primary);
+  border-color: var(--border-color);
+  color: var(--text-secondary);
+}
+
+.tabs.is-boxed li.is-active a {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.tabs.is-boxed li:hover a {
+  background-color: rgba(0, 100, 224, 0.1);
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.tabs.is-boxed li.is-active:hover a {
+  background-color: var(--primary-hover) !important;
+  border-color: var(--primary-hover) !important;
+  color: white !important;
+}
+
+.tab-content {
+  margin-top: 1rem;
+}
+
+.tab-pane {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.pipeline-tab-pane {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.pipeline-tab-pane video {
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+}
+
+.pipeline-tab-pane video:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* Print styles */
 @media print {
   .more-works-container {

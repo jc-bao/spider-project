@@ -358,11 +358,11 @@
           <h2 class="title is-3 has-text-centered">Framework Overview</h2>
           <div class="columns is-centered">
             <div class="column is-four-fifths">
-              <img src="figs/teaser.png"
+              <img src="static/images/teaser.png"
                 alt="SPIDER framework overview showing physics-based retargeting from human motion to robot actions"
                 loading="lazy" style="width: 100%; height: auto;" />
               <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
-                <strong>Pipeline: </strong> <code class="spider">SPIDER</code> is a framework for mapping
+                <strong>Method: </strong> <code class="spider">SPIDER</code> is a framework for mapping
                 infeasible human motion to feasible
                 dexterous robot actions by massive physics-based sampling with virtual contact guidance. After
                 physics-based retargeting, we can generate large-scale dynamically feasible datasets directly deployable
@@ -382,124 +382,130 @@
     <section class="hero is-small is-light">
       <div class="hero-body">
         <div class="container">
-          <h2 class="title is-3 has-text-centered">Method Pipeline</h2>
+          <h2 class="title is-3 has-text-centered">Pipeline</h2>
           <div class="columns is-centered">
             <div class="column is-four-fifths">
-              <img src="figs/pipeline.png" alt="SPIDER method pipeline showing the physics-based retargeting process"
-                loading="lazy" style="width: 100%; height: auto;" />
-              <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
-                <strong>Method Pipeline:</strong> SPIDER takes human motion as input and generates robot-feasible
-                trajectories through physics-based sampling with virtual contact guidance, ensuring dynamical
-                feasibility and correct contact sequences.
+              <img src="static/images/pipeline.png"
+                alt="SPIDER method pipeline showing the physics-based retargeting process" loading="lazy"
+                style="width: 100%; height: auto;" />
+              <h2 class="subtitle has-text-centered" style="margin-top: 1rem; margin-bottom: 2rem;">
+                <strong>Pipeline: </strong> <code class="spider">SPIDER</code> takes in human motion + object
+                motion with their mesh, and generates
+                dynamically feasible robot trajectories that can be executed on the robot.
               </h2>
             </div>
           </div>
 
-          <!-- Pipeline Process Videos -->
-          <div class="video-scroll-container" style="margin-top: 2rem;">
-            <div class="video-scroll-item">
-              <h3 class="subtitle is-4 has-text-centered">Human Motion Input</h3>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/pipeline/human_motion.mp4" type="video/mp4">
-              </video>
+          <!-- Pipeline Process Videos with Tabs -->
+          <div style="margin-top: 2rem;">
+            <!-- Pipeline Tabs -->
+            <div class="tabs is-centered is-boxed">
+              <ul>
+                <li class="is-active" data-tab="step1">
+                  <a>
+                    <span>Input: Human Motion + Object Motion</span>
+                  </a>
+                </li>
+                <li data-tab="step2">
+                  <a>
+                    <span>Step 1: Kinematic Retargeting</span>
+                  </a>
+                </li>
+                <li data-tab="step3">
+                  <a>
+                    <span>Step 2: Physics-Based Sampling</span>
+                  </a>
+                </li>
+                <li data-tab="step4">
+                  <a>
+                    <span>Output: Dynamically Feasible Trajectory</span>
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div class="video-scroll-item">
-              <h3 class="subtitle is-4 has-text-centered">IK</h3>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/pipeline/ik.mp4" type="video/mp4">
-              </video>
+
+            <!-- Pipeline Tab Content -->
+            <div class="pipeline-tab-content">
+              <!-- Step 1 -->
+              <div id="step1" class="pipeline-tab-pane is-active">
+                <h3 class="subtitle is-4 has-text-centered" style="margin-bottom: 1rem;">Human Motion Input</h3>
+                <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                  style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                  <source data-src="videos/pipeline/human_motion.mp4" type="video/mp4">
+                </video>
+              </div>
+
+              <!-- Step 2 -->
+              <div id="step2" class="pipeline-tab-pane" style="display: none;">
+                <h3 class="subtitle is-4 has-text-centered" style="margin-bottom: 1rem;">IK</h3>
+                <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                  style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                  <source data-src="videos/pipeline/ik.mp4" type="video/mp4">
+                </video>
+              </div>
+
+              <!-- Step 3 -->
+              <div id="step3" class="pipeline-tab-pane" style="display: none;">
+                <h3 class="subtitle is-4 has-text-centered" style="margin-bottom: 1rem;">Physics-Based Sampling</h3>
+                <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                  style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                  <source src="videos/pipeline/sampling.mp4" type="video/webm">
+                </video>
+              </div>
+
+              <!-- Step 4 -->
+              <div id="step4" class="pipeline-tab-pane" style="display: none;">
+                <h3 class="subtitle is-4 has-text-centered" style="margin-bottom: 1rem;">Retargeted Trajectory</h3>
+                <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                  style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                  <source data-src="videos/pipeline/retarget.mp4" type="video/mp4">
+                </video>
+              </div>
             </div>
-            <div class="video-scroll-item">
-              <h3 class="subtitle is-4 has-text-centered">Physics-Based Sampling</h3>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source src="videos/pipeline/sampling.mp4" type="video/webm">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h3 class="subtitle is-4 has-text-centered">Retargeted Trajectory</h3>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/pipeline/retarget.mp4" type="video/mp4">
-              </video>
-            </div>
+
+            <script>
+              // Pipeline tab switching functionality
+              document.addEventListener('DOMContentLoaded', () => {
+                const pipelineTabs = document.querySelectorAll('.tabs li[data-tab^="step"]');
+                const pipelineTabPanes = document.querySelectorAll('.pipeline-tab-pane');
+
+                pipelineTabs.forEach(tab => {
+                  tab.addEventListener('click', () => {
+                    const target = tab.dataset.tab;
+
+                    // Remove active class from all pipeline tabs
+                    pipelineTabs.forEach(t => t.classList.remove('is-active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('is-active');
+
+                    // Hide all pipeline tab panes
+                    pipelineTabPanes.forEach(pane => {
+                      pane.style.display = 'none';
+                      pane.classList.remove('is-active');
+                    });
+
+                    // Show target tab pane
+                    const targetPane = document.getElementById(target);
+                    targetPane.style.display = 'block';
+                    targetPane.classList.add('is-active');
+                  });
+                });
+              });
+            </script>
           </div>
         </div>
       </div>
     </section>
     <!-- End SPIDER pipeline figure -->
 
-
-
-    <!-- Simulation Results -->
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title is-3 has-text-centered">Dexterous Manipulation Results</h2>
-          <iframe src="https://app.rerun.io/version/0.26.0/?url=/static/rerun/g1_run.rrd" width="100%" height="800vh"
-            style="border:none"></iframe>
-          <script>
-            // Make url absolute at runtime so it works locally AND on GitHub Pages:
-            const f = document.querySelector('iframe');
-            const rrdURL = new URL('/static/rerun/g1_run.rrd', window.location.origin).href;
-            f.src = `https://app.rerun.io/version/0.26.0/?url=${encodeURIComponent(rrdURL)}`;
-          </script>
-
-
-          <!-- Multi-Robot Demonstrations -->
-          <!-- <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Multi-Robot Tea Pouring Task</h3>
-          <div class="video-scroll-container">
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Allegro Hand</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/allegro_tea.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Inspire Hand</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/inspire_tea.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Schunk Hand</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/schunk_tea.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">XHand</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/xhand_tea.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Ability Hand - Tea</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/ability_tea.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Ability Hand - Board Wiping</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/ability_wipe_board.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Inspire Hand - Board Lifting</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/inspire_lift_board.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div> -->
-        </div>
-      </div>
-    </section>
-    <!-- End simulation results -->
-
     <!-- Real World Results -->
     <section class="hero is-small is-light">
       <div class="hero-body">
         <div class="container">
-          <h2 class="title is-3 has-text-centered">Real World Results</h2>
+          <h2 class="title is-3 has-text-centered">Direct Deployment on Robots</h2>
+
+          <h3 class="title is-4 has-text-centered">Being dynamically feasible, the generated trajectories can be
+            directly executed on the robot.</h3>
 
           <!-- Real World Demonstrations -->
           <div class="video-scroll-container">
@@ -554,6 +560,187 @@
 
 
 
+    <!-- Simulation Results -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3 has-text-centered">Retargeting for Humanoid Robots</h2>
+
+          <!-- Bulma Tabs -->
+          <div class="tabs is-centered is-boxed">
+            <ul>
+              <!-- G1 Picking Box Tab -->
+              <li data-tab="g1-picking-box">
+                <a>
+                  <span>Unitree G1 Picking Box</span>
+                </a>
+              </li>
+              <!-- G1 pushing box Tab -->
+              <li data-tab="g1-pushing-box">
+                <a>
+                  <span>Unitree G1 Pushing Box</span>
+                </a>
+              </li>
+              <!-- G1 Sprint Tab -->
+              <li class="is-active" data-tab="g1-sprint">
+                <a>
+                  <span>Unitree G1 Sprint</span>
+                </a>
+              </li>
+              <li data-tab="h1-kick">
+                <a>
+                  <span>Unitree H1-2 Kick</span>
+                </a>
+              </li>
+              <li data-tab="n1-walk">
+                <a>
+                  <span>Fourier N1 Walk Backward</span>
+                </a>
+              </li>
+              <li data-tab="t1-skip">
+                <a>
+                  <span>Booster T1 Skip</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <!-- G1 Picking Box Tab -->
+            <div id="g1-picking-box" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/g1_picking_box.rrd" width="100%" height="600px"
+                style="border:none"></iframe>
+            </div>
+
+            <!-- G1 Pushing Box Tab -->
+            <div id="g1-pushing-box" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/g1_pushing_box.rrd" width="100%" height="800px"
+                style="border:none"></iframe>
+            </div>
+
+            <!-- G1 Sprint Tab -->
+            <div id="g1-sprint" class="tab-pane is-active">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/g1_sprint.rrd" width="100%" height="800px"
+                style="border:none"></iframe>
+            </div>
+
+            <!-- H1-2 Sprint Tab -->
+            <div id="h1-kick" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/h1_kick.rrd" width="100%" height="800px"
+                style="border:none"></iframe>
+            </div>
+
+            <!-- N1 Walk Backward Tab -->
+            <div id="n1-walk" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/n1_walk.rrd" width="100%" height="800px"
+                style="border:none"></iframe>
+            </div>
+
+            <!-- T1 Skip Tab -->
+            <div id="t1-skip" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/t1_skip.rrd" width="100%" height="800px"
+                style="border:none"></iframe>
+            </div>
+          </div>
+
+          <script>
+            // Tab switching functionality
+            document.addEventListener('DOMContentLoaded', () => {
+              const tabs = document.querySelectorAll('.tabs li');
+              const tabPanes = document.querySelectorAll('.tab-pane');
+
+              tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                  const target = tab.dataset.tab;
+
+                  // Remove active class from all tabs
+                  tabs.forEach(t => t.classList.remove('is-active'));
+                  // Add active class to clicked tab
+                  tab.classList.add('is-active');
+
+                  // Hide all tab panes
+                  tabPanes.forEach(pane => {
+                    pane.style.display = 'none';
+                    pane.classList.remove('is-active');
+                  });
+
+                  // Show target tab pane
+                  const targetPane = document.getElementById(target);
+                  targetPane.style.display = 'block';
+                  targetPane.classList.add('is-active');
+
+                  // Load iframe if not already loaded
+                  const iframe = targetPane.querySelector('iframe');
+                  if (!iframe.src) {
+                    const rrdURL = new URL(iframe.dataset.rrd, window.location.origin).href;
+                    iframe.src = `https://app.rerun.io/version/0.26.0/?url=${encodeURIComponent(rrdURL)}`;
+                  }
+                });
+              });
+
+              // Load first iframe on page load
+              const firstIframe = document.querySelector('.tab-pane.is-active iframe');
+              if (firstIframe && !firstIframe.src) {
+                const rrdURL = new URL(firstIframe.dataset.rrd, window.location.origin).href;
+                firstIframe.src = `https://app.rerun.io/version/0.26.0/?url=${encodeURIComponent(rrdURL)}`;
+              }
+            });
+          </script>
+
+
+          <!-- Multi-Robot Demonstrations -->
+          <!-- <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Multi-Robot Tea Pouring Task</h3>
+          <div class="video-scroll-container">
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Allegro Hand</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/allegro_tea.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Inspire Hand</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/inspire_tea.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Schunk Hand</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/schunk_tea.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">XHand</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/xhand_tea.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Ability Hand - Tea</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/ability_tea.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Ability Hand - Board Wiping</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/ability_wipe_board.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Inspire Hand - Board Lifting</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/inspire_lift_board.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </section>
+    <!-- End simulation results -->
+
+
 
 
 
@@ -564,28 +751,15 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
-            <h2 class="title is-3">Method</h2>
-            <div class="content has-text-justified">
-              <p>
-                SPIDER addresses the fundamental challenge of transferring human demonstrations to robot control by
-                leveraging physics-based simulation and contact-aware guidance. Our approach consists of three main
-                components: (1) human motion preprocessing and embodiment mapping, (2) physics-based sampling with
-                virtual contact guidance, and (3) trajectory refinement for robot deployment.
-              </p>
-              <p>
-                The key insight behind SPIDER is that human demonstrations should provide global task structure, while
-                large-scale physics-based sampling with curriculum-style virtual contact guidance refines trajectories
-                to ensure dynamical feasibility and correct contact sequences. This approach enables us to bridge the
-                morphology, dynamics, and contact mismatches between humans and robots at scale.
-              </p>
-            </div>
+            <h2 class="title is-3">Contact Guidance</h2>
+            <h4 class="title is-4 has-text-centered">Contact guidance is used to ensure desired contact sequences is
+              achieved.</h4>
           </div>
         </div>
       </div>
 
       <!-- Contact Guidance Ablation integrated into Method -->
       <div class="container">
-        <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Contact Guidance Ablation Study</h3>
         <div class="video-scroll-container">
           <div class="video-scroll-item">
             <h4 class="subtitle is-5 has-text-centered">With Contact Guidance - Allegro</h4>
