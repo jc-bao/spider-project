@@ -296,12 +296,6 @@
             <!-- SPIDER teaser video -->
             <source data-src="videos/teaser_video.mp4" type="video/mp4">
           </video>
-          <!-- SPIDER Video Description -->
-          <h2 class="subtitle has-text-centered">
-            SPIDER is a framework for mapping infeasible human motion to feasible dexterous robot actions by massive
-            physics-based sampling with virtual contact guidance. After physics-based retargeting, we can generate
-            large-scale dynamically feasible datasets directly deployable on robots in the real world.
-          </h2>
         </div>
       </div>
     </section>
@@ -356,18 +350,18 @@
       <div class="hero-body">
         <div class="container">
           <h2 class="title is-3 has-text-centered">Framework Overview</h2>
+          <h5 class="subtitle has-text-centered" style="margin-top: 1rem;">
+            <strong>Method: </strong> <code class="spider">SPIDER</code> is a framework for mapping
+            infeasible human motion to feasible
+            dexterous robot actions by massive physics-based sampling with virtual contact guidance. After
+            physics-based retargeting, we can generate large-scale dynamically feasible datasets directly deployable
+            on robots in the real world.
+          </h5>
           <div class="columns is-centered">
             <div class="column is-four-fifths">
               <img src="static/images/teaser.png"
                 alt="SPIDER framework overview showing physics-based retargeting from human motion to robot actions"
                 loading="lazy" style="width: 100%; height: auto;" />
-              <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
-                <strong>Method: </strong> <code class="spider">SPIDER</code> is a framework for mapping
-                infeasible human motion to feasible
-                dexterous robot actions by massive physics-based sampling with virtual contact guidance. After
-                physics-based retargeting, we can generate large-scale dynamically feasible datasets directly deployable
-                on robots in the real world.
-              </h2>
             </div>
           </div>
         </div>
@@ -383,16 +377,16 @@
       <div class="hero-body">
         <div class="container">
           <h2 class="title is-3 has-text-centered">Pipeline</h2>
+          <h5 class="subtitle has-text-centered" style="margin-top: 1rem; margin-bottom: 2rem;">
+            <strong>Pipeline: </strong> <code class="spider">SPIDER</code> takes in human motion + object
+            motion with their mesh, and generates
+            dynamically feasible robot trajectories that can be executed on the robot.
+          </h5>
           <div class="columns is-centered">
             <div class="column is-four-fifths">
               <img src="static/images/pipeline.png"
                 alt="SPIDER method pipeline showing the physics-based retargeting process" loading="lazy"
                 style="width: 100%; height: auto;" />
-              <h2 class="subtitle has-text-centered" style="margin-top: 1rem; margin-bottom: 2rem;">
-                <strong>Pipeline: </strong> <code class="spider">SPIDER</code> takes in human motion + object
-                motion with their mesh, and generates
-                dynamically feasible robot trajectories that can be executed on the robot.
-              </h2>
             </div>
           </div>
 
@@ -504,8 +498,9 @@
         <div class="container">
           <h2 class="title is-3 has-text-centered">Direct Deployment on Robots</h2>
 
-          <h3 class="title is-4 has-text-centered">Being dynamically feasible, the generated trajectories can be
-            directly executed on the robot.</h3>
+          <h5 class="subtitle has-text-centered" style="margin-top: 1rem;">Being dynamically
+            feasible, the generated trajectories can be
+            directly executed on the robot. The rollout data is augmented with <em>domain randomization</em>. </h5>
 
           <!-- Real World Demonstrations -->
           <div class="video-scroll-container">
@@ -551,6 +546,24 @@
                 <source data-src="videos/real/rotate_cube.mp4" type="video/mp4">
               </video>
             </div>
+            <div class="video-scroll-item">
+              <h3 class="subtitle is-4 has-text-centered">Pick Duck</h3>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="static/videos/success_duck.MOV" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h3 class="subtitle is-4 has-text-centered">Pick Lego</h3>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="static/videos/success_lego.MOV" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h3 class="subtitle is-4 has-text-centered">Pick Toy</h3>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="static/videos/success_toy.MOV" type="video/mp4">
+              </video>
+            </div>
           </div>
         </div>
       </div>
@@ -558,13 +571,201 @@
     <!-- End real world results -->
 
 
+    <!-- dexterous hand results -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3 has-text-centered">Retargeting for Dexterous Hands</h2>
 
+          <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Interactive Visualization</h3>
+
+          <h5 class="title is-5 has-text-centered">Click on the tabs to view the retargeted trajectories. Switch from
+            <code class="log_time">log_time</code> to <code class="sim_time">sim_time</code> to view the generated
+            motion in the simulation time.
+          </h5>
+
+
+          <!-- Bulma Tabs -->
+          <div class="tabs is-centered is-boxed">
+            <ul>
+              <!-- allegro move tea pot -->
+              <li class="is-active" data-tab="allegro-move-tea-pot">
+                <a>
+                  <span>Allegro Move Tea Pot</span>
+                </a>
+              </li>
+
+              <!-- inspire hand play guitar -->
+              <li data-tab="inspire-hand-play-guitar">
+                <a>
+                  <span>Inspire Hand Play Guitar</span>
+                </a>
+              </li>
+
+              <!-- xhand lift board -->
+              <li data-tab="xhand-lift-board">
+                <a>
+                  <span>XHand Lift Board</span>
+                </a>
+              </li>
+
+              <!-- ability hand wipe board -->
+              <li data-tab="ability-hand-wipe-board">
+                <a>
+                  <span>Ability Hand Wipe Board</span>
+                </a>
+              </li>
+
+              <!-- schunk hand pet dog -->
+              <li data-tab="schunk-hand-pet-dog">
+                <a>
+                  <span>Schunk Hand Pet Dog</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <!-- Allegro Move Tea Pot-->
+            <div id="allegro-move-tea-pot" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/allegro_move_tea_pot.rrd" width="100%" height="600px"
+                style="border:none"></iframe>
+            </div>
+
+            <!-- Inspire Hand Play Guitar Tab -->
+            <div id="inspire-hand-play-guitar" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/inspire_hand_play_guitar.rrd" width="100%"
+                height="600px" style="border:none"></iframe>
+            </div>
+
+            <!-- XHand Lift Board Tab -->
+            <div id="xhand-lift-board" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/xhand_lift_board.rrd" width="100%" height="600px"
+                style="border:none"></iframe>
+            </div>
+
+            <!-- Ability Hand Wipe Board Tab -->
+            <div id="ability-hand-wipe-board" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/ability_wipe_board.rrd" width="100%" height="600px"
+                style="border:none"></iframe>
+            </div>
+
+            <!-- Schunk Hand Pet Dog Tab -->
+            <div id="schunk-hand-pet-dog" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe" data-rrd="/static/rerun/schunk_hand_pet_dog.rrd" width="100%" height="600px"
+                style="border:none"></iframe>
+            </div>
+
+          </div>
+
+          <script>
+            // Tab switching functionality
+            document.addEventListener('DOMContentLoaded', () => {
+              const tabs = document.querySelectorAll('.tabs li');
+              const tabPanes = document.querySelectorAll('.tab-pane');
+
+              tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                  const target = tab.dataset.tab;
+
+                  // Remove active class from all tabs
+                  tabs.forEach(t => t.classList.remove('is-active'));
+                  // Add active class to clicked tab
+                  tab.classList.add('is-active');
+
+                  // Hide all tab panes
+                  tabPanes.forEach(pane => {
+                    pane.style.display = 'none';
+                    pane.classList.remove('is-active');
+                  });
+
+                  // Show target tab pane
+                  const targetPane = document.getElementById(target);
+                  targetPane.style.display = 'block';
+                  targetPane.classList.add('is-active');
+
+                  // Load iframe if not already loaded
+                  const iframe = targetPane.querySelector('iframe');
+                  if (!iframe.src) {
+                    const rrdURL = new URL(iframe.dataset.rrd, window.location.origin).href;
+                    iframe.src = `https://app.rerun.io/version/0.26.0/?url=${encodeURIComponent(rrdURL)}`;
+                  }
+                });
+              });
+
+              // Load first iframe on page load
+              const firstIframe = document.querySelector('.tab-pane.is-active iframe');
+              if (firstIframe && !firstIframe.src) {
+                const rrdURL = new URL(firstIframe.dataset.rrd, window.location.origin).href;
+                firstIframe.src = `https://app.rerun.io/version/0.26.0/?url=${encodeURIComponent(rrdURL)}`;
+              }
+            });
+          </script>
+
+
+          <!-- Multi-Robot Demonstrations -->
+          <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Simulation Videos</h3>
+          <div class="video-scroll-container">
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Allegro Hand</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/allegro_tea.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Inspire Hand</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/inspire_tea.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Schunk Hand</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/schunk_tea.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">XHand</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/xhand_tea.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Ability Hand - Tea</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/ability_tea.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Ability Hand - Board Wiping</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/ability_wipe_board.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="video-scroll-item">
+              <h4 class="subtitle is-5 has-text-centered">Inspire Hand - Board Lifting</h4>
+              <video data-lazy="true" poster="" controls muted loop preload="metadata">
+                <source data-src="videos/sim/inspire_lift_board.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Simulation Results -->
     <section class="hero is-small">
       <div class="hero-body">
         <div class="container">
           <h2 class="title is-3 has-text-centered">Retargeting for Humanoid Robots</h2>
+
+          <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Interactive Visualization</h3>
+
+          <h5 class="title is-5 has-text-centered">Click on the tabs to view the retargeted trajectories. Switch from
+            <code class="log_time">log_time</code> to <code class="sim_time">sim_time</code> to view the generated
+            motion in the simulation time.
+          </h5>
 
           <!-- Bulma Tabs -->
           <div class="tabs is-centered is-boxed">
@@ -687,64 +888,255 @@
               }
             });
           </script>
-
-
-          <!-- Multi-Robot Demonstrations -->
-          <!-- <h3 class="title is-4 has-text-centered" style="margin-top: 2rem;">Multi-Robot Tea Pouring Task</h3>
-          <div class="video-scroll-container">
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Allegro Hand</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/allegro_tea.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Inspire Hand</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/inspire_tea.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Schunk Hand</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/schunk_tea.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">XHand</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/xhand_tea.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Ability Hand - Tea</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/ability_tea.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Ability Hand - Board Wiping</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/ability_wipe_board.mp4" type="video/mp4">
-              </video>
-            </div>
-            <div class="video-scroll-item">
-              <h4 class="subtitle is-5 has-text-centered">Inspire Hand - Board Lifting</h4>
-              <video data-lazy="true" poster="" controls muted loop preload="metadata">
-                <source data-src="videos/sim/inspire_lift_board.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div> -->
         </div>
       </div>
     </section>
     <!-- End simulation results -->
 
+    <!-- Data augmentation -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-3 has-text-centered">Data Augmentation</h2>
 
+          <h5 class="title is-5 has-text-centered">As a physics-based retargeting method, <code
+              class="spider">SPIDER</code> can diversify single demonstration into multiple feasible trajectories with
+            new objects and environments. </h5>
 
+          <!-- Outer Tabs for Augmentation Types -->
+          <div class="tabs is-centered is-boxed" style="margin-top: 2rem;" id="augmentation-outer-tabs">
+            <ul>
+              <li class="is-active" data-aug-type="object-size">
+                <a>
+                  <span>Object Size</span>
+                </a>
+              </li>
+              <li data-aug-type="object-shape">
+                <a>
+                  <span>Object Shape</span>
+                </a>
+              </li>
+              <li data-aug-type="terrain">
+                <a>
+                  <span>Terrain</span>
+                </a>
+              </li>
+              <li data-aug-type="force">
+                <a>
+                  <span>Force</span>
+                </a>
+              </li>
+            </ul>
+          </div>
 
+          <!-- Augmentation Content -->
+          <div class="augmentation-content">
+            <!-- Object Size Section -->
+            <div id="object-size" class="aug-type-pane is-active">
+              <!-- Inner tabs for Origin/Augmented -->
+              <div class="tabs is-centered is-toggle" style="margin-top: 1rem;">
+                <ul>
+                  <li class="is-active" data-inner-tab="object-size-origin">
+                    <a>
+                      <span>Origin</span>
+                    </a>
+                  </li>
+                  <li data-inner-tab="object-size-augmented">
+                    <a>
+                      <span>Augmented</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Inner content -->
+              <div class="inner-tab-content">
+                <div id="object-size-origin" class="inner-tab-pane is-active">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="videos/augmentation/object_size_origin.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div id="object-size-augmented" class="inner-tab-pane" style="display: none;">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="videos/augmentation/object_size_augmented.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
 
-    <!-- Poster section removed as requested -->
+            <!-- Object Shape Section -->
+            <div id="object-shape" class="aug-type-pane" style="display: none;">
+              <!-- Inner tabs for Origin/Augmented -->
+              <div class="tabs is-centered is-toggle" style="margin-top: 1rem;">
+                <ul>
+                  <li class="is-active" data-inner-tab="object-shape-origin">
+                    <a>
+                      <span>Origin</span>
+                    </a>
+                  </li>
+                  <li data-inner-tab="object-shape-augmented">
+                    <a>
+                      <span>Augmented</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Inner content -->
+              <div class="inner-tab-content">
+                <div id="object-shape-origin" class="inner-tab-pane is-active">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="videos/augmentation/object_shape_origin.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div id="object-shape-augmented" class="inner-tab-pane" style="display: none;">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="videos/augmentation/object_shape_augmented.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+
+            <!-- Terrain Section -->
+            <div id="terrain" class="aug-type-pane" style="display: none;">
+              <!-- Inner tabs for Origin/Augmented -->
+              <div class="tabs is-centered is-toggle" style="margin-top: 1rem;">
+                <ul>
+                  <li class="is-active" data-inner-tab="terrain-origin">
+                    <a>
+                      <span>Origin</span>
+                    </a>
+                  </li>
+                  <li data-inner-tab="terrain-augmented">
+                    <a>
+                      <span>Augmented</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Inner content -->
+              <div class="inner-tab-content">
+                <div id="terrain-origin" class="inner-tab-pane is-active">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="videos/augmentation/terrain_origin.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div id="terrain-augmented" class="inner-tab-pane" style="display: none;">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="videos/augmentation/terrain_augmented.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+
+            <!-- Force Section -->
+            <div id="force" class="aug-type-pane" style="display: none;">
+              <!-- Inner tabs for Origin/Augmented -->
+              <div class="tabs is-centered is-toggle" style="margin-top: 1rem;">
+                <ul>
+                  <li class="is-active" data-inner-tab="force-origin">
+                    <a>
+                      <span>Origin</span>
+                    </a>
+                  </li>
+                  <li data-inner-tab="force-augmented">
+                    <a>
+                      <span>Augmented</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Inner content -->
+              <div class="inner-tab-content">
+                <div id="force-origin" class="inner-tab-pane is-active">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="videos/augmentation/force_origin.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div id="force-augmented" class="inner-tab-pane" style="display: none;">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="videos/augmentation/force_augmented.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            // Augmentation tab switching functionality
+            document.addEventListener('DOMContentLoaded', () => {
+              // Outer tabs (augmentation types)
+              const outerTabs = document.querySelectorAll('#augmentation-outer-tabs li');
+              const augTypePanes = document.querySelectorAll('.aug-type-pane');
+
+              outerTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                  const targetType = tab.dataset.augType;
+
+                  // Remove active class from all outer tabs
+                  outerTabs.forEach(t => t.classList.remove('is-active'));
+                  tab.classList.add('is-active');
+
+                  // Hide all augmentation type panes
+                  augTypePanes.forEach(pane => {
+                    pane.style.display = 'none';
+                    pane.classList.remove('is-active');
+                  });
+
+                  // Show target pane
+                  const targetPane = document.getElementById(targetType);
+                  targetPane.style.display = 'block';
+                  targetPane.classList.add('is-active');
+                });
+              });
+
+              // Inner tabs (origin/augmented) - need to handle for each outer tab
+              const setupInnerTabs = (containerSelector) => {
+                const container = document.querySelector(containerSelector);
+                if (!container) return;
+
+                const innerTabs = container.querySelectorAll('.tabs li[data-inner-tab]');
+                const innerPanes = container.querySelectorAll('.inner-tab-pane');
+
+                innerTabs.forEach(tab => {
+                  tab.addEventListener('click', () => {
+                    const targetId = tab.dataset.innerTab;
+
+                    // Remove active from all inner tabs in this container
+                    innerTabs.forEach(t => t.classList.remove('is-active'));
+                    tab.classList.add('is-active');
+
+                    // Hide all inner panes in this container
+                    innerPanes.forEach(pane => {
+                      pane.style.display = 'none';
+                      pane.classList.remove('is-active');
+                    });
+
+                    // Show target inner pane
+                    const targetPane = document.getElementById(targetId);
+                    targetPane.style.display = 'block';
+                    targetPane.classList.add('is-active');
+                  });
+                });
+              };
+
+              // Setup inner tabs for each augmentation type
+              setupInnerTabs('#object-size');
+              setupInnerTabs('#object-shape');
+              setupInnerTabs('#terrain');
+              setupInnerTabs('#force');
+            });
+          </script>
+
+        </div>
+      </div>
+    </section>
 
     <!-- Method Section -->
     <section class="section hero">
@@ -752,8 +1144,9 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-3">Contact Guidance</h2>
-            <h4 class="title is-4 has-text-centered">Contact guidance is used to ensure desired contact sequences is
-              achieved.</h4>
+            <h5 class="subtitle has-text-centered" style="margin-top: 1rem;">Contact guidance is used to ensure desired
+              contact sequences is
+              achieved.</h5>
           </div>
         </div>
       </div>
