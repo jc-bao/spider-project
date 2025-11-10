@@ -595,6 +595,13 @@
                 </a>
               </li>
 
+              <!-- xhand handover rubic -->
+              <li data-tab="xhand-handover-glass">
+                <a>
+                  <span>XHand Handover Glass</span>
+                </a>
+              </li>
+
               <!-- inspire hand play guitar -->
               <li data-tab="inspire-hand-play-guitar">
                 <a>
@@ -629,41 +636,56 @@
           <div class="tab-content">
             <!-- Allegro Move Tea Pot-->
             <div id="allegro-move-tea-pot" class="tab-pane" style="display: none;">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/allegro_move_tea_pot.rrd" width="100%" height="600px"
-                style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/allegro_move_tea_pot.rrd"
+                width="100%" height="600px" style="border:none"></iframe>
+            </div>
+
+            <!-- XHand Handover Glass Tab -->
+            <div id="xhand-handover-glass" class="tab-pane" style="display: none;">
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/xhand_handover_glass.rrd"
+                width="100%" height="600px" style="border:none"></iframe>
             </div>
 
             <!-- Inspire Hand Play Guitar Tab -->
             <div id="inspire-hand-play-guitar" class="tab-pane" style="display: none;">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/inspire_hand_play_guitar.rrd" width="100%"
-                height="600px" style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/inspire_hand_play_guitar.rrd"
+                width="100%" height="600px" style="border:none"></iframe>
             </div>
 
             <!-- XHand Lift Board Tab -->
             <div id="xhand-lift-board" class="tab-pane" style="display: none;">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/xhand_lift_board.rrd" width="100%" height="600px"
-                style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/xhand_lift_board.rrd"
+                width="100%" height="600px" style="border:none"></iframe>
             </div>
 
             <!-- Ability Hand Wipe Board Tab -->
             <div id="ability-hand-wipe-board" class="tab-pane" style="display: none;">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/ability_wipe_board.rrd" width="100%" height="600px"
-                style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/ability_wipe_board.rrd"
+                width="100%" height="600px" style="border:none"></iframe>
             </div>
 
             <!-- Schunk Hand Pet Dog Tab -->
             <div id="schunk-hand-pet-dog" class="tab-pane" style="display: none;">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/schunk_hand_pet_dog.rrd" width="100%" height="600px"
-                style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/schunk_hand_pet_dog.rrd"
+                width="100%" height="600px" style="border:none"></iframe>
             </div>
 
           </div>
 
           <script>
-            // Tab switching functionality
+            // Tab switching functionality for dexterous hands
             document.addEventListener('DOMContentLoaded', () => {
-              const tabs = document.querySelectorAll('.tabs li');
-              const tabPanes = document.querySelectorAll('.tab-pane');
+              const dexterousSection = document.querySelector('.hero.is-small:has(#allegro-move-tea-pot)');
+              if (!dexterousSection) return;
+
+              const tabs = dexterousSection.querySelectorAll('.tabs li');
+              const tabPanes = dexterousSection.querySelectorAll('.tab-pane');
 
               tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
@@ -681,23 +703,23 @@
                   });
 
                   // Show target tab pane
-                  const targetPane = document.getElementById(target);
+                  const targetPane = dexterousSection.querySelector(`#${target}`);
                   targetPane.style.display = 'block';
                   targetPane.classList.add('is-active');
 
                   // Load iframe if not already loaded
                   const iframe = targetPane.querySelector('iframe');
                   if (!iframe.src) {
-                    const rrdURL = new URL(iframe.dataset.rrd, window.location.origin).href;
+                    const rrdURL = iframe.dataset.rrd;
                     iframe.src = `https://app.rerun.io/version/0.26.0/?url=${encodeURIComponent(rrdURL)}`;
                   }
                 });
               });
 
               // Load first iframe on page load
-              const firstIframe = document.querySelector('.tab-pane.is-active iframe');
+              const firstIframe = dexterousSection.querySelector('.tab-pane.is-active iframe');
               if (firstIframe && !firstIframe.src) {
-                const rrdURL = new URL(firstIframe.dataset.rrd, window.location.origin).href;
+                const rrdURL = firstIframe.dataset.rrd;
                 firstIframe.src = `https://app.rerun.io/version/0.26.0/?url=${encodeURIComponent(rrdURL)}`;
               }
             });
@@ -810,46 +832,55 @@
           <div class="tab-content">
             <!-- G1 Picking Box Tab -->
             <div id="g1-picking-box" class="tab-pane" style="display: none;">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/g1_picking_box.rrd" width="100%" height="600px"
-                style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/g1_picking_box.rrd"
+                width="100%" height="600px" style="border:none"></iframe>
             </div>
 
             <!-- G1 Pushing Box Tab -->
             <div id="g1-pushing-box" class="tab-pane" style="display: none;">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/g1_pushing_box.rrd" width="100%" height="800px"
-                style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/g1_pushing_box.rrd"
+                width="100%" height="800px" style="border:none"></iframe>
             </div>
 
             <!-- G1 Sprint Tab -->
             <div id="g1-sprint" class="tab-pane is-active">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/g1_sprint.rrd" width="100%" height="800px"
-                style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/g1_sprint.rrd"
+                width="100%" height="800px" style="border:none"></iframe>
             </div>
 
-            <!-- H1-2 Sprint Tab -->
+            <!-- H1-2 Kick Tab -->
             <div id="h1-kick" class="tab-pane" style="display: none;">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/h1_kick.rrd" width="100%" height="800px"
-                style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/h1_kick.rrd"
+                width="100%" height="800px" style="border:none"></iframe>
             </div>
 
             <!-- N1 Walk Backward Tab -->
             <div id="n1-walk" class="tab-pane" style="display: none;">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/n1_walk.rrd" width="100%" height="800px"
-                style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/n1_walk.rrd"
+                width="100%" height="800px" style="border:none"></iframe>
             </div>
 
             <!-- T1 Skip Tab -->
             <div id="t1-skip" class="tab-pane" style="display: none;">
-              <iframe class="rerun-iframe" data-rrd="/static/rerun/t1_skip.rrd" width="100%" height="800px"
-                style="border:none"></iframe>
+              <iframe class="rerun-iframe"
+                data-rrd="https://huggingface.co/datasets/ChaoyiPan/retarget-rerun/resolve/main/t1_skip.rrd"
+                width="100%" height="800px" style="border:none"></iframe>
             </div>
           </div>
 
           <script>
-            // Tab switching functionality
+            // Tab switching functionality for humanoid robots
             document.addEventListener('DOMContentLoaded', () => {
-              const tabs = document.querySelectorAll('.tabs li');
-              const tabPanes = document.querySelectorAll('.tab-pane');
+              const humanoidSection = document.querySelector('.hero.is-small:has(#g1-picking-box)');
+              if (!humanoidSection) return;
+
+              const tabs = humanoidSection.querySelectorAll('.tabs li');
+              const tabPanes = humanoidSection.querySelectorAll('.tab-pane');
 
               tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
@@ -867,23 +898,23 @@
                   });
 
                   // Show target tab pane
-                  const targetPane = document.getElementById(target);
+                  const targetPane = humanoidSection.querySelector(`#${target}`);
                   targetPane.style.display = 'block';
                   targetPane.classList.add('is-active');
 
                   // Load iframe if not already loaded
                   const iframe = targetPane.querySelector('iframe');
                   if (!iframe.src) {
-                    const rrdURL = new URL(iframe.dataset.rrd, window.location.origin).href;
+                    const rrdURL = iframe.dataset.rrd;
                     iframe.src = `https://app.rerun.io/version/0.26.0/?url=${encodeURIComponent(rrdURL)}`;
                   }
                 });
               });
 
               // Load first iframe on page load
-              const firstIframe = document.querySelector('.tab-pane.is-active iframe');
+              const firstIframe = humanoidSection.querySelector('.tab-pane.is-active iframe');
               if (firstIframe && !firstIframe.src) {
-                const rrdURL = new URL(firstIframe.dataset.rrd, window.location.origin).href;
+                const rrdURL = firstIframe.dataset.rrd;
                 firstIframe.src = `https://app.rerun.io/version/0.26.0/?url=${encodeURIComponent(rrdURL)}`;
               }
             });
@@ -962,175 +993,175 @@
 
             <!-- Object Shape Section -->
             <div id="object-shape" class="aug-type-pane" style="display: none;">
-                <!-- Inner tabs for Origin/Augmented -->
-                <div class="tabs is-centered is-toggle" style="margin-top: 1rem;">
-                  <ul>
-                    <li class="is-active" data-inner-tab="object-shape-origin">
-                      <a>
-                        <span>Origin</span>
-                      </a>
-                    </li>
-                    <li data-inner-tab="object-shape-augmented">
-                      <a>
-                        <span>Augmented</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- Inner content -->
-                <div class="inner-tab-content">
-                  <div id="object-shape-origin" class="inner-tab-pane is-active">
-                    <video data-lazy="true" poster="" controls muted loop preload="metadata"
-                      style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
-                      <source data-src="static/videos/pick_coke.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <div id="object-shape-augmented" class="inner-tab-pane" style="display: none;">
-                    <video data-lazy="true" poster="" controls muted loop preload="metadata"
-                      style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
-                      <source data-src="static/videos/pick_cat.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                </div>
+              <!-- Inner tabs for Origin/Augmented -->
+              <div class="tabs is-centered is-toggle" style="margin-top: 1rem;">
+                <ul>
+                  <li class="is-active" data-inner-tab="object-shape-origin">
+                    <a>
+                      <span>Origin</span>
+                    </a>
+                  </li>
+                  <li data-inner-tab="object-shape-augmented">
+                    <a>
+                      <span>Augmented</span>
+                    </a>
+                  </li>
+                </ul>
               </div>
-
-              <!-- Terrain Section -->
-              <div id="terrain" class="aug-type-pane" style="display: none;">
-                <!-- Inner tabs for Origin/Augmented -->
-                <div class="tabs is-centered is-toggle" style="margin-top: 1rem;">
-                  <ul>
-                    <li class="is-active" data-inner-tab="terrain-origin">
-                      <a>
-                        <span>Origin</span>
-                      </a>
-                    </li>
-                    <li data-inner-tab="terrain-augmented">
-                      <a>
-                        <span>Augmented</span>
-                      </a>
-                    </li>
-                  </ul>
+              <!-- Inner content -->
+              <div class="inner-tab-content">
+                <div id="object-shape-origin" class="inner-tab-pane is-active">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="static/videos/pick_coke.mp4" type="video/mp4">
+                  </video>
                 </div>
-                <!-- Inner content -->
-                <div class="inner-tab-content">
-                  <div id="terrain-origin" class="inner-tab-pane is-active">
-                    <video data-lazy="true" poster="" controls muted loop preload="metadata"
-                      style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
-                      <source data-src="static/videos/g1_run_flat.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <div id="terrain-augmented" class="inner-tab-pane" style="display: none;">
-                    <video data-lazy="true" poster="" controls muted loop preload="metadata"
-                      style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
-                      <source data-src="static/videos/g1_run_stair.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Force Section -->
-              <div id="force" class="aug-type-pane" style="display: none;">
-                <!-- Inner tabs for Origin/Augmented -->
-                <div class="tabs is-centered is-toggle" style="margin-top: 1rem;">
-                  <ul>
-                    <li class="is-active" data-inner-tab="force-origin">
-                      <a>
-                        <span>Origin</span>
-                      </a>
-                    </li>
-                    <li data-inner-tab="force-augmented">
-                      <a>
-                        <span>Augmented</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- Inner content -->
-                <div class="inner-tab-content">
-                  <div id="force-origin" class="inner-tab-pane is-active">
-                    <video data-lazy="true" poster="" controls muted loop preload="metadata"
-                      style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
-                      <source data-src="static/videos/g1_run_flat.mp4" type="video/mp4">
-                    </video>
-                  </div>
-                  <div id="force-augmented" class="inner-tab-pane" style="display: none;">
-                    <video data-lazy="true" poster="" controls muted loop preload="metadata"
-                      style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
-                      <source data-src="static/videos/g1_run_force.mp4" type="video/mp4">
-                    </video>
-                  </div>
+                <div id="object-shape-augmented" class="inner-tab-pane" style="display: none;">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="static/videos/pick_cat.mp4" type="video/mp4">
+                  </video>
                 </div>
               </div>
             </div>
 
-            <script>
-              // Augmentation tab switching functionality
-              document.addEventListener('DOMContentLoaded', () => {
-                // Outer tabs (augmentation types)
-                const outerTabs = document.querySelectorAll('#augmentation-outer-tabs li');
-                const augTypePanes = document.querySelectorAll('.aug-type-pane');
+            <!-- Terrain Section -->
+            <div id="terrain" class="aug-type-pane" style="display: none;">
+              <!-- Inner tabs for Origin/Augmented -->
+              <div class="tabs is-centered is-toggle" style="margin-top: 1rem;">
+                <ul>
+                  <li class="is-active" data-inner-tab="terrain-origin">
+                    <a>
+                      <span>Origin</span>
+                    </a>
+                  </li>
+                  <li data-inner-tab="terrain-augmented">
+                    <a>
+                      <span>Augmented</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Inner content -->
+              <div class="inner-tab-content">
+                <div id="terrain-origin" class="inner-tab-pane is-active">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="static/videos/g1_run_flat.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div id="terrain-augmented" class="inner-tab-pane" style="display: none;">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="static/videos/g1_run_stair.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
 
-                outerTabs.forEach(tab => {
+            <!-- Force Section -->
+            <div id="force" class="aug-type-pane" style="display: none;">
+              <!-- Inner tabs for Origin/Augmented -->
+              <div class="tabs is-centered is-toggle" style="margin-top: 1rem;">
+                <ul>
+                  <li class="is-active" data-inner-tab="force-origin">
+                    <a>
+                      <span>Origin</span>
+                    </a>
+                  </li>
+                  <li data-inner-tab="force-augmented">
+                    <a>
+                      <span>Augmented</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Inner content -->
+              <div class="inner-tab-content">
+                <div id="force-origin" class="inner-tab-pane is-active">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="static/videos/g1_run_flat.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div id="force-augmented" class="inner-tab-pane" style="display: none;">
+                  <video data-lazy="true" poster="" controls muted loop preload="metadata"
+                    style="width: 100%; max-width: 800px; margin: 0 auto; display: block; border-radius: 12px;">
+                    <source data-src="static/videos/g1_run_force.mp4" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            // Augmentation tab switching functionality
+            document.addEventListener('DOMContentLoaded', () => {
+              // Outer tabs (augmentation types)
+              const outerTabs = document.querySelectorAll('#augmentation-outer-tabs li');
+              const augTypePanes = document.querySelectorAll('.aug-type-pane');
+
+              outerTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                  const targetType = tab.dataset.augType;
+
+                  // Remove active class from all outer tabs
+                  outerTabs.forEach(t => t.classList.remove('is-active'));
+                  tab.classList.add('is-active');
+
+                  // Hide all augmentation type panes
+                  augTypePanes.forEach(pane => {
+                    pane.style.display = 'none';
+                    pane.classList.remove('is-active');
+                  });
+
+                  // Show target pane
+                  const targetPane = document.getElementById(targetType);
+                  targetPane.style.display = 'block';
+                  targetPane.classList.add('is-active');
+                });
+              });
+
+              // Inner tabs (origin/augmented) - need to handle for each outer tab
+              const setupInnerTabs = (containerSelector) => {
+                const container = document.querySelector(containerSelector);
+                if (!container) return;
+
+                const innerTabs = container.querySelectorAll('.tabs li[data-inner-tab]');
+                const innerPanes = container.querySelectorAll('.inner-tab-pane');
+
+                innerTabs.forEach(tab => {
                   tab.addEventListener('click', () => {
-                    const targetType = tab.dataset.augType;
+                    const targetId = tab.dataset.innerTab;
 
-                    // Remove active class from all outer tabs
-                    outerTabs.forEach(t => t.classList.remove('is-active'));
+                    // Remove active from all inner tabs in this container
+                    innerTabs.forEach(t => t.classList.remove('is-active'));
                     tab.classList.add('is-active');
 
-                    // Hide all augmentation type panes
-                    augTypePanes.forEach(pane => {
+                    // Hide all inner panes in this container
+                    innerPanes.forEach(pane => {
                       pane.style.display = 'none';
                       pane.classList.remove('is-active');
                     });
 
-                    // Show target pane
-                    const targetPane = document.getElementById(targetType);
+                    // Show target inner pane
+                    const targetPane = document.getElementById(targetId);
                     targetPane.style.display = 'block';
                     targetPane.classList.add('is-active');
                   });
                 });
+              };
 
-                // Inner tabs (origin/augmented) - need to handle for each outer tab
-                const setupInnerTabs = (containerSelector) => {
-                  const container = document.querySelector(containerSelector);
-                  if (!container) return;
+              // Setup inner tabs for each augmentation type
+              setupInnerTabs('#object-size');
+              setupInnerTabs('#object-shape');
+              setupInnerTabs('#terrain');
+              setupInnerTabs('#force');
+            });
+          </script>
 
-                  const innerTabs = container.querySelectorAll('.tabs li[data-inner-tab]');
-                  const innerPanes = container.querySelectorAll('.inner-tab-pane');
-
-                  innerTabs.forEach(tab => {
-                    tab.addEventListener('click', () => {
-                      const targetId = tab.dataset.innerTab;
-
-                      // Remove active from all inner tabs in this container
-                      innerTabs.forEach(t => t.classList.remove('is-active'));
-                      tab.classList.add('is-active');
-
-                      // Hide all inner panes in this container
-                      innerPanes.forEach(pane => {
-                        pane.style.display = 'none';
-                        pane.classList.remove('is-active');
-                      });
-
-                      // Show target inner pane
-                      const targetPane = document.getElementById(targetId);
-                      targetPane.style.display = 'block';
-                      targetPane.classList.add('is-active');
-                    });
-                  });
-                };
-
-                // Setup inner tabs for each augmentation type
-                setupInnerTabs('#object-size');
-                setupInnerTabs('#object-shape');
-                setupInnerTabs('#terrain');
-                setupInnerTabs('#force');
-              });
-            </script>
-
-          </div>
         </div>
+      </div>
     </section>
 
     <!-- Method Section -->
